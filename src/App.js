@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, {useState, useEffect} from "react";
+import pauseDesktop from "./images/pattern-divider-desktop.svg";
+import pauseMobile from "./images/pattern-divider-mobile.svg";
+import icon from "./images/icon-dice.svg";
+import { useState } from "react/cjs/react.production.min";
+import axios from "axios";
 
 function App() {
+  const [advice, setAdvice] = useState('');
+
+  const getAdvice = async() =>{
+    const response = await axios.get("https://api.adviceslip.com/advice");
+    console.log(response);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <main className="container">
+        <h1 className="title">Advice #</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <picture>
+          <source media="(min-width: 768px)" srcSet={pauseDesktop} />
+          <img src={pauseMobile} alt="" />
+        </picture>
+        <button>
+          <img src={icon} alt="" />
+        </button>
+      </main>
     </div>
   );
 }

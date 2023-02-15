@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+:root {
+  --Light-Cyan: hsl(193, 38%, 86%);
+  --Neon-Green: hsl(150, 100%, 66%);
+  --Grayish-Blue: hsl(217, 19%, 38%);
+  --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+  --Dark-Blue: hsl(218, 23%, 16%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+  max-width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: var(--Dark-Grayish-Blue);
+  padding: 1.25rem;
+  font-family: "Manrope", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: calc(100vh - 0.1px);
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  background: linear-gradient(110.06deg, rgba(19, 10, 54, 0) -2.34%, #000000 100%);
+  padding: 1.25rem 1.25rem 3rem;
+  color: #ffffff;
+  border-radius: 1.25rem;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.container h1 {
+  color: var(--Neon-Green);
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.4rem;
+}
+
+.container p {
+  font-size: 20px;
+  color: var(--Light-Cyan);
+  line-height: 1.5;
+  padding-bottom: 2rem;
+}
+
+.container picture img {
+  position: relative;
+}
+
+.container picture::before {
+  content: "";
+  width: 40%;
+  height: 1px;
+  background-color: var(--Light-Cyan);
+  right: 1.25rem;
+  bottom: 3.8rem;
+  position: absolute;
+  display: block;
+  z-index: 99;
+}
+
+.container picture::after {
+  content: "";
+  width: 45%;
+  height: 1px;
+  background-color: var(--Light-Cyan);
+  left: 0;
+  bottom: 0.74rem;
+  position: relative;
+  display: block;
+}
+
+.container button {
+  background-color: var(--Neon-Green);
+  padding: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container button:hover {
+  background-color: hsl(150, 59%, 54%);
+}
+
+@media (min-width: 500px) {
+  .container {
+    max-width: 480px;
   }
 }
